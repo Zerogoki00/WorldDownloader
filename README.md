@@ -7,6 +7,7 @@ This is a continuation [dslake's original version](https://github.com/dslake/Wor
 ## About this fork
 
 Original World Downloader mod is awesome. However, it contains permission system which allow server admins to enforce restrictions or completely disable this mod on their server. I think that all users should have freedom of choice and ability to use this mod whenever they want. So I created this fork with permission system removed and also made World Downloader undetectable by server (at least baseedit versions).
+You can download it from [Releases](https://github.com/Zerogoki00/WorldDownloader-cleaned/releases) section or compile it yourself.
 
 
 ## How do I compile this?
