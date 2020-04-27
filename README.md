@@ -4,6 +4,11 @@ World Downloader is a mod that allows making backups of Minecraft worlds.  You c
 
 This is a continuation [dslake's original version](https://github.com/dslake/WorldDownloader).
 
+## About this fork
+
+Original World Downloader mod is awesome. However, it contains permission system which allow server admins to enforce restrictions or completely disable this mod on their server. I think that all users should have freedom of choice and ability to use this mod whenever they want. So I created this fork with permission system removed and also made World Downloader undetectable by server (at least baseedit versions).
+
+
 ## How do I compile this?
 
 You first need to set up begradle.  Right now, this can be done by downloading [from this repo](https://github.com/Pokechu22/ForgeGradle-extensions) and then running `gradlew install`.  Later this'll be put into a maven repo so that it doesn't need to manually be installed, but at this phase in development, it needs to manually be done.
