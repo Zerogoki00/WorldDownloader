@@ -25,7 +25,7 @@ import net.minecraft.client.resources.I18n;
 import wdl.EntityUtils;
 import wdl.EntityUtils.SpigotEntityType;
 import wdl.WDL;
-import wdl.WDLPluginChannels;
+//import wdl.WDLPluginChannels;
 import wdl.config.IConfiguration;
 import wdl.gui.widget.ButtonDisplayGui;
 import wdl.gui.widget.WDLButton;
@@ -42,7 +42,7 @@ public class GuiWDLEntityRangePresets extends WDLScreen implements GuiYesNoCallb
 
 	private WDLButton vanillaButton;
 	private WDLButton spigotButton;
-	private WDLButton serverButton;
+//	private WDLButton serverButton;
 	private WDLButton cancelButton;
 
 	private static final int ID_VANILLA = 0, ID_SPIGOT = 1, ID_SERVER = 2;
@@ -68,14 +68,14 @@ public class GuiWDLEntityRangePresets extends WDLScreen implements GuiYesNoCallb
 				I18n.format("wdl.gui.rangePresets.spigot"),
 				makeYesNoGui("wdl.gui.rangePresets.spigot.warning", ID_SPIGOT)));
 		y += 22;
-		this.serverButton = this.addButton(new ButtonDisplayGui(
-				this.width / 2 - 100, y, 200, 20,
-				I18n.format("wdl.gui.rangePresets.server"),
-				makeYesNoGui("wdl.gui.rangePresets.spigot.warning", ID_SERVER)));
+//		this.serverButton = this.addButton(new ButtonDisplayGui(
+//				this.width / 2 - 100, y, 200, 20,
+//				I18n.format("wdl.gui.rangePresets.server"),
+//				makeYesNoGui("wdl.gui.rangePresets.spigot.warning", ID_SERVER)));
+//
+//		serverButton.setEnabled(WDLPluginChannels.hasServerEntityRange());
 
-		serverButton.setEnabled(WDLPluginChannels.hasServerEntityRange());
-
-		y += 28;
+//		y += 28;
 
 		this.cancelButton = this.addButton(new ButtonDisplayGui(
 				this.width / 2 - 100, this.height - 29, 200, 20,
@@ -99,15 +99,17 @@ public class GuiWDLEntityRangePresets extends WDLScreen implements GuiYesNoCallb
 			infoText = I18n.format("wdl.gui.rangePresets.vanilla.description");
 		} else if (spigotButton.isHovered()) {
 			infoText = I18n.format("wdl.gui.rangePresets.spigot.description");
-		} else if (serverButton.isHovered()) {
-			infoText = I18n.format("wdl.gui.rangePresets.server.description") + "\n\n";
-
-			if (serverButton.isEnabled()) {
-				infoText += I18n.format("wdl.gui.rangePresets.server.installed");
-			} else {
-				infoText += I18n.format("wdl.gui.rangePresets.server.notInstalled");
-			}
-		} else if (cancelButton.isHovered()) {
+		}
+//		else if (serverButton.isHovered()) {
+//			infoText = I18n.format("wdl.gui.rangePresets.server.description") + "\n\n";
+//
+//			if (serverButton.isEnabled()) {
+//				infoText += I18n.format("wdl.gui.rangePresets.server.installed");
+//			} else {
+//				infoText += I18n.format("wdl.gui.rangePresets.server.notInstalled");
+//			}
+//		}
+		else if (cancelButton.isHovered()) {
 			infoText = I18n.format("wdl.gui.rangePresets.cancel.description");
 		}
 
@@ -137,8 +139,9 @@ public class GuiWDLEntityRangePresets extends WDLScreen implements GuiYesNoCallb
 				}
 			} else if (id == ID_SERVER) {
 				for (String entity : entities) {
-					config.setUserEntityTrackDistance(entity,
-							WDLPluginChannels.getEntityRange(entity));
+//					config.setUserEntityTrackDistance(entity,
+//							WDLPluginChannels.getEntityRange(entity));
+					config.setUserEntityTrackDistance(entity, EntityUtils.STANDARD_VANILLA_MANAGER.getTrackDistance(entity, null));
 				}
 			}
 		}

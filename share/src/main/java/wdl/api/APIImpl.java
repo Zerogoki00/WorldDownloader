@@ -34,7 +34,7 @@ import wdl.MessageTypeCategory;
 import wdl.VersionConstants;
 import wdl.WDL;
 import wdl.WDLMessages;
-import wdl.WDLPluginChannels;
+//import wdl.WDLPluginChannels;
 import wdl.api.WDLApi.ModInfo;
 import wdl.config.Setting;
 import wdl.config.settings.MiscSettings.ExtensionEnabledSetting;
@@ -51,15 +51,15 @@ public class APIImpl implements WDLApi.APIInstance {
 
 	@Override
 	public void saveTileEntity(BlockPos pos, TileEntity te) {
-		if (!WDLPluginChannels.canSaveTileEntities(pos.getX() >> 4,
-				pos.getZ() >> 4)) {
-			LOGGER.warn("API attempted to call saveTileEntity when " +
-					"saving TileEntities is not allowed!  Pos: " + pos +
-					", te: " + te + ".  StackTrace: ");
-			logStackTrace();
-
-			return;
-		}
+//		if (!WDLPluginChannels.canSaveTileEntities(pos.getX() >> 4,
+//				pos.getZ() >> 4)) {
+//			LOGGER.warn("API attempted to call saveTileEntity when " +
+//					"saving TileEntities is not allowed!  Pos: " + pos +
+//					", te: " + te + ".  StackTrace: ");
+//			logStackTrace();
+//
+//			return;
+//		}
 
 		WDL.getInstance().saveTileEntity(pos, te);
 	}

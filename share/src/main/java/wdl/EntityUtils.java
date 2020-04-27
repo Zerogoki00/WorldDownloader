@@ -147,15 +147,16 @@ public class EntityUtils {
 			return -1;
 		}
 		case SERVER: {
-			int serverDistance = WDLPluginChannels
-					.getEntityRange(type);
-
-			if (serverDistance < 0) {
 				return getEntityTrackDistance(TrackDistanceMode.DEFAULT, type, entity);
-			}
-
-			return serverDistance;
-		} 
+//			int serverDistance = WDLPluginChannels
+//					.getEntityRange(type);
+//
+//			if (serverDistance < 0) {
+//				return getEntityTrackDistance(TrackDistanceMode.DEFAULT, type, entity);
+//			}
+//
+//			return serverDistance;
+		}
 		case USER: {
 			int value = WDL.getInstance().worldProps.getUserEntityTrackDistance(type);
 

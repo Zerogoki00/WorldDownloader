@@ -23,7 +23,7 @@ import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
-import wdl.WDLPluginChannels;
+//import wdl.WDLPluginChannels;
 import wdl.config.CyclableSetting;
 import wdl.config.IConfiguration;
 
@@ -38,7 +38,7 @@ public final class EntitySettings {
 			new TrackDistanceModeSetting("Entity.TrackDistanceMode", "wdl.gui.entities.trackDistanceMode");
 
 	@VisibleForTesting
-	static BooleanSupplier hasServerEntityRange = WDLPluginChannels::hasServerEntityRange;
+//	static BooleanSupplier hasServerEntityRange = WDLPluginChannels::hasServerEntityRange;
 
 	public enum TrackDistanceMode implements IStringSerializable {
 		DEFAULT("default"),
@@ -88,21 +88,23 @@ public final class EntitySettings {
 
 		@Override
 		public TrackDistanceMode getDefault(IConfiguration context) {
-			if (hasServerEntityRange.getAsBoolean()) {
-				return TrackDistanceMode.SERVER;
-			} else {
-				return TrackDistanceMode.DEFAULT;
-			}
+//			if (hasServerEntityRange.getAsBoolean()) {
+//				return TrackDistanceMode.SERVER;
+//			} else {
+//				return TrackDistanceMode.DEFAULT;
+//			}
+			return TrackDistanceMode.DEFAULT;
 		}
 
 		@Override
 		public TrackDistanceMode cycle(TrackDistanceMode value) {
 			if (value == TrackDistanceMode.DEFAULT) {
-				if (hasServerEntityRange.getAsBoolean()) {
-					return TrackDistanceMode.SERVER;
-				} else {
-					return TrackDistanceMode.USER;
-				}
+//				if (hasServerEntityRange.getAsBoolean()) {
+//					return TrackDistanceMode.SERVER;
+//				} else {
+//					return TrackDistanceMode.USER;
+//				}
+				return TrackDistanceMode.USER;
 			} else if (value == TrackDistanceMode.SERVER) {
 				return TrackDistanceMode.USER;
 			} else {

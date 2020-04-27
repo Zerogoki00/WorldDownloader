@@ -23,7 +23,7 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.text.TranslationTextComponent;
 import wdl.WDL;
-import wdl.WDLPluginChannels;
+//import wdl.WDLPluginChannels;
 import wdl.config.IConfiguration;
 import wdl.config.settings.MiscSettings;
 import wdl.gui.widget.ButtonDisplayGui;
@@ -67,9 +67,9 @@ public class GuiWDL extends WDLScreen {
 				this.button = this.addButton(new ButtonDisplayGui(0, 0, 200, 20,
 						I18n.format("wdl.gui.wdl." + key + ".name"),
 						() -> openFunc.apply(GuiWDL.this, GuiWDL.this.wdl)), -100, 0);
-				if (needsPerms) {
-					button.setEnabled(WDLPluginChannels.canDownloadAtAll());
-				}
+//				if (needsPerms) {
+//					button.setEnabled(WDLPluginChannels.canDownloadAtAll());
+//				}
 
 				this.tooltip = I18n.format("wdl.gui.wdl." + key + ".description");
 			}
@@ -94,7 +94,7 @@ public class GuiWDL extends WDLScreen {
 			entries.add(new ButtonEntry("backupOptions", GuiWDLBackup::new, true));
 			entries.add(new ButtonEntry("messageOptions", GuiWDLMessages::new, false));
 			entries.add(new ButtonEntry("savedChunks", GuiSavedChunks::new, true));
-			entries.add(new ButtonEntry("permissionsInfo", GuiWDLPermissions::new, false));
+//			entries.add(new ButtonEntry("permissionsInfo", GuiWDLPermissions::new, false));
 			entries.add(new ButtonEntry("about", GuiWDLAbout::new, false));
 			if (WDLUpdateChecker.hasNewVersion()) {
 				// Put at start

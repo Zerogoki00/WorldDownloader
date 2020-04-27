@@ -78,9 +78,9 @@ public class WDLChunkLoader extends WDLChunkLoaderBase {
 	protected ListNBT getEntityList(Chunk chunk) {
 		ListNBT entityList = new ListNBT();
 
-		if (!WDLPluginChannels.canSaveEntities(chunk)) {
-			return entityList;
-		}
+//		if (!WDLPluginChannels.canSaveEntities(chunk)) {
+//			return entityList;
+//		}
 
 		// Build a list of all entities in the chunk.
 		List<Entity> entities = new ArrayList<>();
@@ -205,9 +205,9 @@ public class WDLChunkLoader extends WDLChunkLoaderBase {
 	protected ListNBT getTileEntityList(Chunk chunk) {
 		ListNBT tileEntityList = new ListNBT();
 
-		if (!WDLPluginChannels.canSaveTileEntities(chunk)) {
-			return tileEntityList;
-		}
+//		if (!WDLPluginChannels.canSaveTileEntities(chunk)) {
+//			return tileEntityList;
+//		}
 
 		Map<BlockPos, TileEntity> chunkTEMap = chunk.getTileEntityMap();
 		Map<BlockPos, CompoundNBT> oldTEMap = getOldTileEntities(chunk);

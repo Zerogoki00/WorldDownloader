@@ -422,9 +422,9 @@ public class WDL {
 		minecraft.displayGuiScreen(null);
 		worldClient = minecraft.world;
 
-		if (!WDLPluginChannels.canDownloadAtAll()) {
-			return;
-		}
+//		if (!WDLPluginChannels.canDownloadAtAll()) {
+//			return;
+//		}
 
 		if (promptForInfoForSettings("startDownload", true, this::startDownload, () -> minecraft.displayGuiScreen(null))) {
 			return;
@@ -536,7 +536,7 @@ public class WDL {
 			loadServerProps();
 		}
 
-		WDLPluginChannels.onWorldLoad();
+//		WDLPluginChannels.onWorldLoad();
 
 		// Is this a different server?
 		if (networkManager != newNM) {
@@ -611,11 +611,11 @@ public class WDL {
 	 * when stopping.
 	 */
 	public void saveEverything() throws Exception {
-		if (!WDLPluginChannels.canDownloadAtAll()) {
-			WDLMessages.chatMessageTranslated(WDL.serverProps,
-					WDLMessageTypes.ERROR, "wdl.messages.generalError.forbidden");
-			return;
-		}
+//		if (!WDLPluginChannels.canDownloadAtAll()) {
+//			WDLMessages.chatMessageTranslated(WDL.serverProps,
+//					WDLMessageTypes.ERROR, "wdl.messages.generalError.forbidden");
+//			return;
+//		}
 
 		WorldBackupType backupType = serverProps.getValue(MiscSettings.BACKUP_TYPE);
 
@@ -727,7 +727,7 @@ public class WDL {
 	 * @return The player NBT tag.  Needed for later use in the world info.
 	 */
 	private NBTTagCompound savePlayer(GuiWDLSaveProgress progressScreen) {
-		if (!WDLPluginChannels.canDownloadAtAll()) { return new NBTTagCompound(); }
+//		if (!WDLPluginChannels.canDownloadAtAll()) { return new NBTTagCompound(); }
 
 		progressScreen.startMajorTask(
 				I18n.format("wdl.saveProgress.playerData.title"),
@@ -799,7 +799,7 @@ public class WDL {
 	 */
 	private void saveWorldInfo(GuiWDLSaveProgress progressScreen,
 			NBTTagCompound playerInfoNBT) {
-		if (!WDLPluginChannels.canDownloadAtAll()) { return; }
+//		if (!WDLPluginChannels.canDownloadAtAll()) { return; }
 
 		progressScreen.startMajorTask(
 				I18n.format("wdl.saveProgress.worldMetadata.title"),
@@ -881,7 +881,7 @@ public class WDL {
 	 */
 	private void saveChunks(GuiWDLSaveProgress progressScreen)
 			throws IllegalArgumentException, IllegalAccessException {
-		if (!WDLPluginChannels.canDownloadAtAll()) { return; }
+//		if (!WDLPluginChannels.canDownloadAtAll()) { return; }
 
 		WDLMessages.chatMessageTranslated(WDL.serverProps,
 				WDLMessageTypes.SAVING, "wdl.messages.saving.savingChunks");
@@ -911,9 +911,9 @@ public class WDL {
 			Chunk c = chunks.get(currentChunk);
 			if (c != null) {
 				//Serverside restrictions check
-				if (!WDLPluginChannels.canSaveChunk(c)) {
-					continue;
-				}
+//				if (!WDLPluginChannels.canSaveChunk(c)) {
+//					continue;
+//				}
 
 				progressScreen.setMinorTaskProgress(I18n.format(
 						"wdl.saveProgress.chunk.saving", c.getPos().x,
@@ -930,9 +930,9 @@ public class WDL {
 	 * Import all non-overwritten TileEntities, then save the chunk
 	 */
 	public void saveChunk(Chunk c) {
-		if (!WDLPluginChannels.canDownloadAtAll()) { return; }
-
-		if (!WDLPluginChannels.canSaveChunk(c)) { return; }
+//		if (!WDLPluginChannels.canDownloadAtAll()) { return; }
+//
+//		if (!WDLPluginChannels.canSaveChunk(c)) { return; }
 
 		try {
 			savedChunks.add(c.getPos());
@@ -1327,7 +1327,7 @@ public class WDL {
 	 * that contain pictures.
 	 */
 	private void saveMapData(GuiWDLSaveProgress progressScreen) {
-		if (!WDLPluginChannels.canSaveMaps()) { return; }
+//		if (!WDLPluginChannels.canSaveMaps()) { return; }
 
 		File dataDirectory = new File(saveHandler.getWorldDirectory(),
 				"data");
